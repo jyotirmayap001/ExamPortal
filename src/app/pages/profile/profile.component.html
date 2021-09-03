@@ -1,0 +1,65 @@
+<mat-card>
+
+            <h1>Your Profile Details</h1>
+
+            <mat-card-content>
+                <div class="bootstrap-wrapper">
+                    <div class="container">
+
+                        <div class="container text-center">
+                            <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt=""
+                            class="profile-image">
+
+                            <input type="file" (change)="upload($event.target.files)" />
+                            Upload Percent: {{percentDone}}% <br />
+                            
+                            <h1 class="mt20">{{user.firstname }} {{user.lastname}}</h1>
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-md-10 offset-md-1">
+                            <table class="table text-center">
+
+                                 <tr>
+                                     <td>UserName</td>
+                                     <td>{{user.username}}</td>
+                                 </tr>
+                                 <tr>
+                                    <td>UserID</td>
+                                    <td>EXAM{{user.id}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Phone No.</td>
+                                    <td>{{user.phone}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Role</td>
+                                    <td>{{user.authorities[0].authority}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td>{{user.enabled ? 'ACTIVE' : 'DEACTIVE'}}</td>
+                                </tr>
+                                 
+                            </table>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <mat-card-actions class="text-center">
+                    <button mat-raised-button color="primary">Update</button>
+                    <button mat-raised-button color="accent">SHARE</button>
+                  </mat-card-actions>
+            </mat-card-content>
+
+
+
+</mat-card>
+
+<ngx-ui-loader fgsSize="80" [fgsType]="spinnerType" fgsColor="#ffad46" text="Loading..." pbColor="#4285F4"></ngx-ui-loader>
